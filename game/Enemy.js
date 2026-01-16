@@ -7,7 +7,7 @@ const ENEMY_TYPES = {
     hp: 75,
     damage: 10,
     radius: 14,
-    dropCharge: 0.10,
+    dropCharge: 0.30,
     outline: 2
   },
   fast: {
@@ -25,17 +25,17 @@ const ENEMY_TYPES = {
     hp: 100,
     damage: 12,
     radius: 16,
-    dropCharge: 0.15,
+    dropCharge: 0.2,
     outline: 2,
     shieldHp: 30
   },
   tank: {
     color: '#FFAA6A',
     speed: 20,
-    hp: 300,
+    hp: 200,
     damage: 25,
     radius: 22,
-    dropCharge: 0.20,
+    dropCharge: 0.40,
     outline: 3
   }
 };
