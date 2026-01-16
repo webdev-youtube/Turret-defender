@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turret Defender</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="main-menu" class="screen active">
+      <div class="menu-background"></div>
+      <div class="menu-content">
+        <h1 class="game-title">TURRET DEFENDER</h1>
+        <p class="subtitle">LAST STAND PROTOCOL</p>
+        <button id="start-btn" class="menu-btn primary">START</button>
+        <button id="stats-btn" class="menu-btn secondary">STATS</button>
+        <button id="settings-btn" class="menu-btn secondary">SETTINGS</button>
+      </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+      <canvas id="game-canvas"></canvas>
+      <div id="hud">
+        <div id="hp-container">
+          <div id="hp-bar">
+            <div id="hp-fill"></div>
+            <div id="hp-damage"></div>
+          </div>
+          <span id="hp-text">100 / 100</span>
+        </div>
+        <div id="timer">00:00</div>
+        <div id="stats-panel">
+          <div class="stat-row"><span class="stat-icon">DMG</span><span id="stat-damage">10</span></div>
+          <div class="stat-row"><span class="stat-icon">ROF</span><span id="stat-firerate">5</span></div>
+          <div class="stat-row"><span class="stat-icon">SPD</span><span id="stat-speed">8</span></div>
+          <div class="stat-row"><span class="stat-icon">PRC</span><span id="stat-pierce">0</span></div>
+        </div>
+        <div id="temp-powerups"></div>
+      </div>
+      <div id="boss-warning" class="hidden">
+        <span class="warning-icon">!</span>
+        <span class="warning-text">BOSS INCOMING</span>
+      </div>
+    </div>
+
+    <div id="powerup-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <h2>CHOOSE UPGRADE</h2>
+        <div id="powerup-options"></div>
+      </div>
+    </div>
+
+    <div id="death-screen" class="screen">
+      <div class="death-content">
+        <h1 class="death-title">RUN ENDED</h1>
+        <div class="death-stats">
+          <div class="death-stat"><span class="death-label">SURVIVAL TIME</span><span id="death-time" class="death-value">00:00</span></div>
+          <div class="death-stat"><span class="death-label">ENEMIES KILLED</span><span id="death-kills" class="death-value">0</span></div>
+          <div class="death-stat"><span class="death-label">BOSSES DEFEATED</span><span id="death-bosses" class="death-value">0</span></div>
+          <div class="death-stat"><span class="death-label">HIGHEST DAMAGE</span><span id="death-damage" class="death-value">10</span></div>
+        </div>
+        <button id="restart-btn" class="menu-btn primary">RESTART</button>
+        <button id="menu-btn" class="menu-btn secondary">MAIN MENU</button>
+      </div>
+    </div>
+
+    <div id="stats-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <h2>LIFETIME STATS</h2>
+        <div class="stats-grid">
+          <div class="stat-item"><span class="stat-label">TOTAL RUNS</span><span id="total-runs" class="stat-number">0</span></div>
+          <div class="stat-item"><span class="stat-label">TOTAL KILLS</span><span id="total-kills" class="stat-number">0</span></div>
+          <div class="stat-item"><span class="stat-label">BEST TIME</span><span id="best-time" class="stat-number">00:00</span></div>
+          <div class="stat-item"><span class="stat-label">BOSSES KILLED</span><span id="total-bosses" class="stat-number">0</span></div>
+        </div>
+        <button id="close-stats-btn" class="menu-btn secondary">CLOSE</button>
+      </div>
+    </div>
+
+    <div id="settings-modal" class="modal hidden">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <h2>SETTINGS</h2>
+        <div class="settings-list">
+          <div class="setting-row">
+            <span class="setting-label">SCREEN SHAKE</span>
+            <label class="toggle">
+              <input type="checkbox" id="shake-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <span class="setting-label">SHOW FPS</span>
+            <label class="toggle">
+              <input type="checkbox" id="fps-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        <button id="close-settings-btn" class="menu-btn secondary">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="game/main.js"></script>
+</body>
+</html>
